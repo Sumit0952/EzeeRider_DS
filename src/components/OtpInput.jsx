@@ -116,6 +116,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: '100%',
     alignItems: 'center', // Align items vertically in the center
+    color:'#666'
   },
   input: {
     borderWidth: 2, // Thicker border to make the color change more visible
@@ -126,6 +127,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     margin: 5,
     backgroundColor: 'white', // Ensure the background stays white
+    color:'#666'
   },
   arrowContainer: {
     justifyContent: 'center',

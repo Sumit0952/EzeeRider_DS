@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, FlatList } from 'react-native';
 import  Ionicons  from 'react-native-vector-icons/Ionicons'; // Assuming you're using Expo for icons
-import  Feather  from 'react-native-vector-icons/Feather'; // Assuming you're using Expo for icons
 import  AntDesign  from 'react-native-vector-icons/AntDesign'; // Assuming you're using Expo for icons
+import  Feather  from 'react-native-vector-icons/Feather'; // Assuming you're using Expo for icons
+import  Entypo  from 'react-native-vector-icons/Entypo'; // Assuming you're using Expo for icons
 import { colors } from '../../utils/colors';
 import { dimension } from '../../utils/dimension';
 import { Link, useNavigation } from '@react-navigation/native';

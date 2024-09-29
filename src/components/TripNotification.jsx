@@ -103,6 +103,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 10,
+    color:'#666'
   },
   addressContainer: {
     flexDirection: 'row',

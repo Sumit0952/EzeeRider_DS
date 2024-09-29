@@ -9,14 +9,26 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Drawer = createDrawerNavigator();
-const navigation = createNativeStackNavigator();
+const navigation = createNativeStackNavigator()
 
 const App = () => {
   return (
     <GestureHandlerRootView>
     <NavigationContainer>
       <View style={styles.container}>
-      
+        {/* Header at the top of all screens */}
+        <Header />
+
+        {/* Tab or Drawer navigation */}
+        {/* If you want to use Drawer instead of Tab, uncomment the Drawer.Navigator */}
+        {/* 
+        <Drawer.Navigator>
+          <Drawer.Screen name="HOME" component={HomeScreen} />
+          <Drawer.Screen name="FEEDBACK" component={FeedbackScreen} />
+        </Drawer.Navigator> 
+        */}
+        
+        {/* Bottom Tab Navigation */}
         <TabNavigation />
       </View>
     </NavigationContainer>
@@ -29,7 +41,5 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1, // Make sure the container takes the full screen space
-    backgroundColor:'#fff',
-    color:'#fff'
   },
 });

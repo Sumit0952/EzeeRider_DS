@@ -7,6 +7,12 @@ import BankDetails from '../screens/others/BankDetails';
 import AddBankAccount from '../screens/others/AddBankAccount';
 import TripAct from '../screens/others/TripAct';
 import TripDetails from '../screens/others/TripDetails';
+import MyRouteBooking from '../screens/others/MyRouteBooking';
+import Vehicles from '../screens/others/Vehicles';
+import BikeDetails from '../screens/others/BikeDetails';
+import Document from '../screens/others/Document';
+import EmerContact from '../screens/others/EmerContact';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -69,6 +75,56 @@ const StackNavigation = ({ navigation,route }) => {
       <Stack.Screen 
         name="TripDetails" 
         component={TripDetails} 
+        options={{ 
+          headerShown: true,
+          // Hide the tab bar when this screen is active
+          // Using a listener to access the parent navigator and hide the tab bar
+          tabBarStyle: { display: 'none' },  // This doesn't work here
+        }} 
+      />
+      <Stack.Screen 
+        name="MyRouteBooking" 
+        component={MyRouteBooking} 
+        options={{ 
+          headerShown: true,
+          // Hide the tab bar when this screen is active
+          // Using a listener to access the parent navigator and hide the tab bar
+          tabBarStyle: { display: 'none' },  // This doesn't work here
+        }} 
+      />
+      <Stack.Screen 
+        name="Vehicles" 
+        component={Vehicles} 
+        options={{ 
+          headerShown: true,
+          // Hide the tab bar when this screen is active
+          // Using a listener to access the parent navigator and hide the tab bar
+          tabBarStyle: { display: 'none' },  // This doesn't work here
+        }} 
+      />
+      <Stack.Screen 
+        name="BikeDetails" 
+        component={BikeDetails} 
+        options={{ 
+          headerShown: true,
+          // Hide the tab bar when this screen is active
+          // Using a listener to access the parent navigator and hide the tab bar
+          tabBarStyle: { display: 'none' },  // This doesn't work here
+        }} 
+      />
+      <Stack.Screen 
+        name="Document" 
+        component={Document} 
+        options={{ 
+          headerShown: true,
+          // Hide the tab bar when this screen is active
+          // Using a listener to access the parent navigator and hide the tab bar
+          tabBarStyle: { display: 'none' },  // This doesn't work here
+        }} 
+      />
+      <Stack.Screen 
+        name="EmerContact" 
+        component={EmerContact} 
         options={{ 
           headerShown: true,
           // Hide the tab bar when this screen is active

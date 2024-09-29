@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
   modalMessage: {
     textAlign: 'center',
     marginBottom: 20,
+    color:'#666'
   },
   buttonContainer: {
     flexDirection: 'row',

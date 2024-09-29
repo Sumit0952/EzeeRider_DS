@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     marginBottom: 20,
+    color:'#666'
   },
   modalButtonContainer: {
     flexDirection: 'row',

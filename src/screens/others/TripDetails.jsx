@@ -4,6 +4,7 @@ import { dimension } from '../../utils/dimension';
 import { colors } from '../../utils/colors';
 import { location } from '../../utils/inputs';
 import UserComponent from '../../components/UserComponent';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const TripDetails = ({route}) => {
 
@@ -47,7 +48,7 @@ const TripDetails = ({route}) => {
       };
   return (
 
-    <View style = {styles.container}>
+    <ScrollView style = {styles.container}>
       <View style = {styles.blueBox}> 
         <View style = {styles.content}>
         <Text style = {styles.label}>Earning</Text>
@@ -141,7 +142,7 @@ const TripDetails = ({route}) => {
             </View>
         
 
-    </View>
+    </ScrollView>
   )
 }
 
@@ -177,6 +178,7 @@ const styles = StyleSheet.create({
     label:{
         color:'#fff',
         fontSize:dimension.md,
+        //marginRight:10
     },
     labelText:{
         color:'#fff',
@@ -184,7 +186,7 @@ const styles = StyleSheet.create({
     },
     content:{
         
-        padding:20
+        margin:20
     },
     addressContainer: {
         paddingHorizontal:10,

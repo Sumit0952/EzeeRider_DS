@@ -26,15 +26,15 @@ const More = () => {
   
   const options = [
     { key: '1', title: 'Auto accept', hasSwitch: true,image: require('../../../assets/images/AutoAccept.png'),screen:'Profile' },
-    { key: '2', title: 'My routeBooking', hasSwitch: true,image: require('../../../assets/images/MyRouteBooking.png'),screen:'Profile' },
+    { key: '2', title: 'My routeBooking', hasSwitch: true,image: require('../../../assets/images/MyRouteBooking.png'),screen:'MyRouteBooking' },
     { key: '3', title: 'Manage Profile', hasSwitch: false,image: require('../../../assets/images/Manageprofile.png'),screen:'Profile'},
     { key: '4', title: 'Trip Activity', hasSwitch: false,image: require('../../../assets/images/TripActivity.png'),screen:'TripAct' },
-    { key: '5', title: 'Documents', hasSwitch: false,image: require('../../../assets/images/Document.png') ,screen:'Profile'},
-    { key: '6', title: 'Vehicles', hasSwitch: false,image: require('../../../assets/images/Vehicle.png') ,screen:'Profile'},
+    { key: '5', title: 'Documents', hasSwitch: false,image: require('../../../assets/images/Document.png') ,screen:'Document'},
+    { key: '6', title: 'Vehicles', hasSwitch: false,image: require('../../../assets/images/Vehicle.png') ,screen:'Vehicles'},
     { key: '7', title: 'Offers', hasSwitch: false,image: require('../../../assets/images/offers.png') ,screen:'Profile'},
     { key: '8', title: 'Bank details', hasSwitch: false,image: require('../../../assets/images/bank.png'),screen:'Bank Details' },
     { key: '9', title: 'Vidios for you', hasSwitch: false,image: require('../../../assets/images/Video.png'),screen:'Profile' },
-    { key: '10', title: 'Emergency Contact', hasSwitch: false,image: require('../../../assets/images/sos.png'),screen:'Profile' },
+    { key: '10', title: 'Emergency Contact', hasSwitch: false,image: require('../../../assets/images/sos.png'),screen:'EmerContact' },
     { key: '11', title: 'Logout', hasSwitch: false,image: require('../../../assets/images/logout.png') ,screen:'Profile'},
   ];
 
@@ -51,11 +51,11 @@ const More = () => {
         <Text>{driver.userId}</Text>
       </View>
       <View style={styles.details}>
-        <Text>
-          <Ionicons name='phone-portrait-sharp' size={15} /> Phone: {driver.PhoneNo}
+        <Text style = {{color:'#666'}}>
+          <Ionicons name='phone-portrait-sharp' size={15} color = '#666'/> Phone: {driver.PhoneNo}
         </Text>
-        <Text>
-          <FontAwesome name='map-marker' size={15} /> Zone: {driver.Address}
+        <Text style = {{color:'#666'}}>
+          <FontAwesome name='map-marker' size={15} color='#666' /> Zone: {driver.Address}
         </Text>
       </View>
 

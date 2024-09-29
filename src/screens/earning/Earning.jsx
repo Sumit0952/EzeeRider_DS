@@ -103,7 +103,7 @@ const Earning = () => {
         {/* Underline directly below the active tab */}
         <View style = {{flexDirection:'column'}}>
           
-          <View style={[styles.underline, { left: activeTab === 'Daily' ? 0 : activeTab === 'Weekly' ? '20%' : '45%' }]} />
+          <View style={[styles.underline, { left: activeTab === 'Daily' ? 0 : activeTab === 'Weekly' ? '25%' : '50%' }]} />
           
         </View>
 
@@ -117,9 +117,9 @@ const Earning = () => {
           showValuesOnTopOfBars={true}
           chartConfig={{
             fillShadowGradientOpacity: 1,
-            backgroundColor: '#f2f2f2',
-            backgroundGradientFrom: '#f2f2f2',
-            backgroundGradientTo: '#f2f2f2',
+            backgroundColor: '#fff',
+            backgroundGradientFrom: '#fff',
+            backgroundGradientTo: '#fff',
             decimalCount: 2,
             color: (opacity = 1) => `rgba(0, 122, 255, ${opacity})`,
             labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
-    marginLeft: 40,
+    marginRight: 40,
     //paddingLeft:0,
     
     alignSelf: 'flex-end', // Align to the right
