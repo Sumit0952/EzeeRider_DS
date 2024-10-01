@@ -54,6 +54,7 @@ const PayoutDetails = ({ isVisible, onClose }) => {
           </View>
 
           {/* Withdraw Button */}
+          <View style = {{flexDirection:'row',justifyContent:'space-around'}}>
           <TouchableOpacity style={styles.withdrawButton}>
             <Text style={styles.withdrawButtonText}>Withdraw</Text>
           </TouchableOpacity>
@@ -62,6 +63,7 @@ const PayoutDetails = ({ isVisible, onClose }) => {
           <TouchableOpacity style={styles.closeButton} onPress={onClose}>
             <Text style={styles.closeButtonText}>Close</Text>
           </TouchableOpacity>
+          </View>
         </View>
       </View>
     </Modal>
@@ -122,23 +124,30 @@ const styles = StyleSheet.create({
   withdrawButton: {
     backgroundColor: 'green',
     paddingVertical: 15,
-    borderRadius: 5,
+    //borderRadius: 5,
     alignItems: 'center',
     marginVertical: 10,
+    borderRadius:20,
+    width:'40%'
   },
   withdrawButtonText: {
     color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
+    
   },
   closeButton: {
-    padding: 15,
-    backgroundColor: '#ccc',
-    borderRadius: 5,
+    paddingVertical: 15,
+    backgroundColor: '#818587',
     alignItems: 'center',
+    borderRadius:20,
+    marginVertical: 10,
+    width:'40%'
   },
   closeButtonText: {
     color: '#fff',
     fontWeight: 'bold',
+    marginHorizontal:40
+
   },
 });

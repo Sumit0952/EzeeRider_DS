@@ -12,6 +12,9 @@ import Vehicles from '../screens/others/Vehicles';
 import BikeDetails from '../screens/others/BikeDetails';
 import Document from '../screens/others/Document';
 import EmerContact from '../screens/others/EmerContact';
+import SupportTicket from '../screens/additional/SupportTicket';
+import HelpCenter from '../screens/additional/HelpCenter';
+
 
 
 const Stack = createNativeStackNavigator();
@@ -132,6 +135,36 @@ const StackNavigation = ({ navigation,route }) => {
           tabBarStyle: { display: 'none' },  // This doesn't work here
         }} 
       />
+      <Stack.Screen 
+        name="HelpCenter" 
+        component={HelpCenter} 
+        options={{ 
+          headerShown: true,
+          // Hide the tab bar when this screen is active
+          // Using a listener to access the parent navigator and hide the tab bar
+          tabBarStyle: { display: 'none' },  // This doesn't work here
+        }} 
+      />
+      {/* <Stack.Screen 
+        name="HelpCenter" 
+        component={HelpCenter} 
+        options={{ 
+          headerShown: true,
+          // Hide the tab bar when this screen is active
+          // Using a listener to access the parent navigator and hide the tab bar
+          tabBarStyle: { display: 'none' },  // This doesn't work here
+        }} 
+      />
+      <Stack.Screen 
+        name="SupportTicket" 
+        component={SupportTicket} 
+        options={{ 
+          headerShown: true,
+          // Hide the tab bar when this screen is active
+          // Using a listener to access the parent navigator and hide the tab bar
+          tabBarStyle: { display: 'none' },  // This doesn't work here
+        }} 
+      /> */}
     </Stack.Navigator>
   );
 };

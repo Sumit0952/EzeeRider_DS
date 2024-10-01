@@ -7,6 +7,7 @@ import TabNavigation from './src/navigation/TabNavigation';
 import Header from './src/components/Header';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import MainStackNavigation from './src/navigation/MainStackNavigation';
 
 const Drawer = createDrawerNavigator();
 const navigation = createNativeStackNavigator()
@@ -29,7 +30,7 @@ const App = () => {
         */}
         
         {/* Bottom Tab Navigation */}
-        <TabNavigation />
+        <MainStackNavigation />
       </View>
     </NavigationContainer>
     </GestureHandlerRootView>

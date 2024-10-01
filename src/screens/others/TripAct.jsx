@@ -138,7 +138,7 @@ const TripAct = ({ navigation }) => {
         {/* Underline directly below the active tab */}
         <View style = {{flexDirection:'column'}}>
           
-          <View style={[styles.underline, { left: activeTab === 'Daily' ? 0 : activeTab === 'Weekly' ? '20%' : '45%' }]} />
+          <View style={[styles.underline, { left: activeTab === 'Daily' ? 0 : activeTab === 'Weekly' ? '25%' : '50%' }]} />
           
         </View>
 

@@ -2,14 +2,22 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Modal, Image } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { colors } from '../utils/colors';
+import { useNavigation } from '@react-navigation/native';
 
 const FloatingBottomSheet = ({ isVisible, onClose }) => {
   const options = [
-    { key: '1', title: 'Help Center', image: require('../screens/help_center.png'), extraText: 'Find answers to your queries and raise tickets' },
-    { key: '2', title: 'Support Ticket', image: require('../screens/ticket.png'), extraText: 'Check status of tickets raised' },
-    { key: '3', title: 'Change Language', image: require('../screens/lang.png'), extraText: '' },
-    { key: '4', title: 'Report Rain', image: require('../screens/rain.png'), extraText: '' },
+    { key: '1', title: 'Help Center', image: require('../screens/help_center.png'), extraText: 'Find answers to your queries and raise tickets',screen :'HelpCenter'},
+    { key: '2', title: 'Support Ticket', image: require('../screens/ticket.png'), extraText: 'Check status of tickets raised', screen:'SupportTicket'},
+    { key: '3', title: 'Change Language', image: require('../screens/lang.png'), extraText: '' ,screen:''},
+    { key: '4', title: 'Report Rain', image: require('../screens/rain.png'), extraText: '',screen:'' },
   ];
+
+  const navigation = useNavigation();
+  const handlePress = (screen) => {
+    navigation.navigate(screen);
+    onClose();
+
+  };
 
   return (
     <Modal
@@ -24,7 +32,8 @@ const FloatingBottomSheet = ({ isVisible, onClose }) => {
           <FlatList
             data={options}
             renderItem={({ item }) => (
-              <TouchableOpacity style={styles.option}>
+              <TouchableOpacity style={styles.option}
+              onPress={() => handlePress(item.screen)}>
                 <Image source={item.image} style={styles.icon} />
                 <View style={styles.textContainer}>
                   <Text style={styles.optionText}>{item.title}</Text>
