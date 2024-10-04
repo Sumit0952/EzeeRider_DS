@@ -18,7 +18,7 @@ const App = () => {
     <NavigationContainer>
       <View style={styles.container}>
         {/* Header at the top of all screens */}
-        <Header />
+        
 
         {/* Tab or Drawer navigation */}
         {/* If you want to use Drawer instead of Tab, uncomment the Drawer.Navigator */}

@@ -2,8 +2,12 @@ import { Animated, Dimensions, Easing, StyleSheet, Text, View, ScrollView } from
 import React, { useEffect, useRef, useState } from 'react'
 import { colors } from '../../utils/colors'
 import { dimension } from '../../utils/dimension'
+import CircularProgress from '../../components/CircularProgress';
 
 const screenWidth = Dimensions.get('window').width;
+
+const tripdone = 2;
+const totalTrip = 20;
 
 const Trips = () => {
   const animatedValue = useRef(new Animated.Value(0)).current;
@@ -68,6 +72,8 @@ const Trips = () => {
           <Text style={styles.performanceValue}>4565</Text>
         </View>
       </View>
+      
+
       <ScrollView
         horizontal
         pagingEnabled
@@ -77,28 +83,26 @@ const Trips = () => {
         scrollEventThrottle={16}
         style={styles.scrollView} // Add this style to ensure visibility
       >
+        <View style = {{ flexDirection: 'row',
+    width: screenWidth,
+    paddingHorizontal: 20,
+    height: 200,
+    alignItems: 'center',
+    justifyContent: 'space-between',}}>
         <View style={[styles.view,]} >
-        <Text style = {styles.subHeading}>Weekly Challenges</Text>
-        <Text>Ends on 16 Sep 2024</Text>
-        <Text>Complete 20 trips and earn 100 extra</Text>
-        
-        
-        <Text></Text>
+        <Text style = {styles.subHeading}>Weekly Challenges </Text>
+        <Text style = {[styles.performanceLabel, {paddingLeft:20}]}>Ends on 16 Sep 2024</Text>
+        <Text style = {styles.scrollText}>Complete 20 trips and earn 100 extra</Text>
+        <Text style = {styles.scrollText}><Text style = {{color:colors.grn}}>{tripdone}</Text>/{totalTrip} trip completed</Text>
         </View>
-        <View style={[styles.view, { backgroundColor: 'green' }]} />
-        <View style={[styles.view, { backgroundColor: 'blue' }]} />
+        
+        <CircularProgress percentage={tripdone*100/totalTrip}/>
+       
+        </View>
+        <View style={[styles.view,{ backgroundColor: '#e6e7e8'}]} ><Text style = {{color:colors.textSecondary}}>comming soon</Text></View>
+        <View style={[styles.view,{ backgroundColor: '#e6e7e8'}]} ><Text style = {{color:colors.textSecondary}}>comming soon</Text></View>
       </ScrollView>
-      {/* <View>
-          <ProgressCircle
-            style={{height: 320}}
-            progress={0.3}
-            progressColor={'rgb(134, 65, 244)'}
-            startAngle={-Math.PI * 0.5}
-            endAngle={Math.PI * 0.5}
-            strokeWidth={30}
-            cornerRadius={0}
-          />
-        </View> */}
+      
       <View style={styles.dotContainer}>
         <View style={[styles.dot, activeIndex === 0 && styles.activeDot]} >
           
@@ -184,7 +188,8 @@ const styles = StyleSheet.create({
   },
   view: {
     width: screenWidth,
-    height: 200, // Specify height for each view inside the ScrollView
+    height: 200,
+    flex: 1, // Specify height for each view inside the ScrollView
   },
   dotContainer: {
     flexDirection: 'row',
@@ -203,4 +208,10 @@ const styles = StyleSheet.create({
   activeDot: {
     backgroundColor: '#000', // Active dot color
   },
+  scrollText: {
+    color:colors.textPrimary,
+    paddingLeft:20,
+    paddingTop:20,
+
+  }
 });

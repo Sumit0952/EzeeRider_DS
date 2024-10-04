@@ -1,13 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Modal, Image, Linking, PermissionsAndroid, Platform, Alert } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SOS = ({ isVisible, onClose }) => {
-  const savedPhoneNumber = '+1234567890'; // Replace with your emergency contact's number
+  const [savedPhoneNumber, setSavedPhoneNumber] = useState('');
+
+  // Function to load the saved emergency contact number from AsyncStorage
+  const loadSavedPhoneNumber = async () => {
+    try {
+      const contacts = await AsyncStorage.getItem('contacts');
+      if (contacts !== null) {
+        const parsedContacts = JSON.parse(contacts);
+        // Assuming you want to use the first contact from the list
+        if (parsedContacts.length > 0) {
+          setSavedPhoneNumber(parsedContacts[0].phone);
+        }
+      }
+    } catch (error) {
+      console.log('Error loading emergency contact:', error);
+    }
+  };
+
+  // Fetch the emergency contact when the modal becomes visible
+  useEffect(() => {
+    if (isVisible) {
+      loadSavedPhoneNumber();
+    }
+  }, [isVisible]);
 
   // Function to dial the saved phone number directly
   const dialNumber = async () => {
     const url = `tel:${savedPhoneNumber}`;
-  
+
     if (Platform.OS === 'android') {
       try {
         // Request permission to make the call
@@ -21,10 +45,9 @@ const SOS = ({ isVisible, onClose }) => {
             buttonPositive: 'OK',
           }
         );
-  
+
         // If permission is granted, make the call directly
         if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-          // Use Linking to open the call directly
           Linking.openURL(url).catch(err => Alert.alert('Error', 'Unable to call the number.'));
         } else {
           Alert.alert('Permission Denied', 'Call permission was denied.');
@@ -33,7 +56,6 @@ const SOS = ({ isVisible, onClose }) => {
         Alert.alert('Error', err.message);
       }
     } else {
-      // For iOS or other platforms
       Linking.openURL(url).catch(err => Alert.alert('Error', 'Unable to call this number.'));
     }
   };

@@ -14,6 +14,7 @@ import { colors } from '../utils/colors';
 import More from '../screens/others/More';
 
 
+
 const Tab = createBottomTabNavigator();
 
 
@@ -49,6 +50,7 @@ const TabNavigation = () => {
         tabBarInactiveTintColor: colors.iconSecondary, // Inactive color for icon and label
       })}
     >
+      
       <Tab.Screen name="Explore" component={Explore} />
       <Tab.Screen name="Trips" component={Trips} />
       <Tab.Screen name="Earning" component={Earning} />
