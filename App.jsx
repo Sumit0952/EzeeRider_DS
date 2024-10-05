@@ -8,6 +8,7 @@ import Header from './src/components/Header';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MainStackNavigation from './src/navigation/MainStackNavigation';
+import { SubmissionProvider } from './src/screens/additional/SubmissionContext';
 
 const Drawer = createDrawerNavigator();
 const navigation = createNativeStackNavigator()
@@ -15,6 +16,7 @@ const navigation = createNativeStackNavigator()
 const App = () => {
   return (
     <GestureHandlerRootView>
+      <SubmissionProvider>
     <NavigationContainer>
       <View style={styles.container}>
         {/* Header at the top of all screens */}
@@ -33,6 +35,7 @@ const App = () => {
         <MainStackNavigation />
       </View>
     </NavigationContainer>
+    </SubmissionProvider>
     </GestureHandlerRootView>
   );
 };

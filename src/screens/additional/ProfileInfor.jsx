@@ -6,6 +6,8 @@ import * as ImagePicker from 'react-native-image-picker'; // Image picker for ga
 import DatePicker from 'react-native-date-picker'; // Date picker for selecting DOB
 import { colors } from '../../utils/colors';
 import { dimension } from '../../utils/dimension';
+import { useNavigation } from '@react-navigation/native';
+import { useSubmission } from './SubmissionContext';
 
 const ProfileInfor = () => {
   const [fullName, setFullName] = useState('');
@@ -17,6 +19,10 @@ const ProfileInfor = () => {
   const [isDatePickerVisible, setIsDatePickerVisible] = useState(false); // Control DatePicker visibility
   const [date, setDate] = useState(new Date()); // Holds the selected date
 
+  const { setSubmissionStatus } = useSubmission();
+
+
+  const navigation = useNavigation();
   const genderOptions = [
     { label: 'Male', value: 'male' },
     { label: 'Female', value: 'female' },
@@ -83,6 +89,8 @@ const ProfileInfor = () => {
 
       if (response.ok) {
         Alert.alert('Success', 'Profile data sent to the server.');
+        setSubmissionStatus(prev => ({ ...prev, isSubmitted_ProfileInfo: true }));
+        navigation.navigate('RiderRegistration');
       } else {
         Alert.alert('Error', 'Failed to send profile data to the server.');
       }

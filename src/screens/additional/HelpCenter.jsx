@@ -31,7 +31,7 @@ const HelpScreen = ({ navigation }) => {
   );
 
   const sendEmail = () => {
-    const email = 'sumitkumar.200259@gmail.com';
+    const email = 'help@ezeeriders.in';
     const subject = 'Help Request';
     const body = 'Provide your Credentials, Ride Details and Explain your Problem and attact screenshort if any '; 
     
