@@ -1,4 +1,3 @@
-// RiderRegistration.js
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
@@ -12,7 +11,7 @@ const RiderRegistration = () => {
     const { submissionStatus } = useSubmission(); // Get the submission status from the context
 
     useEffect(() => {
-        // Navigate to the next screen if all forms are submitted
+        // Navigate to TabNav and reset the navigation stack if all forms are submitted
         if (
             submissionStatus.isSubmitted_ProfileInfo &&
             submissionStatus.isSubmitted_DrivingLicense &&
@@ -21,42 +20,21 @@ const RiderRegistration = () => {
             submissionStatus.isSubmitted_VehicleRC &&
             submissionStatus.isSubmitted_IdVerify
         ) {
-            navigation.navigate('Tabnav'); // Replace with your desired screen name
+            navigation.reset({
+                index: 0, // Reset to the first screen
+                routes: [{ name: 'Tabnav' }], // Replace 'TabNav' with your actual TabNav screen
+            });
         }
     }, [submissionStatus]);
-    console.log(submissionStatus.isSubmitted_ProfileInfo)
-    console.log(submissionStatus.isSubmitted_AddAccount)
 
     const options = [
-        { key: '1', title: 'Profile Info', screen: 'ProfileInfor', navAllowed :submissionStatus.isSubmitted_ProfileInfo},
-        { key: '2', title: 'Driving License', screen: 'DrivingLicense',navAllowed:submissionStatus.isSubmitted_DrivingLicense },
-        { key: '3', title: 'Vehicle RC', screen: 'VehicleRc',navAllowed:submissionStatus.isSubmitted_VehicleRC },
-        { key: '4', title: 'Add Vehicle', screen: 'AddVehicle',navAllowed:submissionStatus.isSubmitted_AddVehicle },
-        { key: '5', title: 'Identity Verification', screen: 'IdVerify',navAllowed:submissionStatus.isSubmitted_IdVerify },
-        { key: '6', title: 'Bank Details', screen: 'AddAccount',navAllowed:submissionStatus.isSubmitted_AddAccount },
+        { key: '1', title: 'Profile Info', screen: 'ProfileInfo', navAllowed: submissionStatus.isSubmitted_ProfileInfo },
+        { key: '2', title: 'Driving License', screen: 'DrivingLicense', navAllowed: submissionStatus.isSubmitted_DrivingLicense },
+        { key: '3', title: 'Vehicle RC', screen: 'VehicleRc', navAllowed: submissionStatus.isSubmitted_VehicleRC },
+        { key: '4', title: 'Add Vehicle', screen: 'AddVehicle', navAllowed: submissionStatus.isSubmitted_AddVehicle },
+        { key: '5', title: 'Identity Verification', screen: 'IdVerify', navAllowed: submissionStatus.isSubmitted_IdVerify },
+        { key: '6', title: 'Bank Details', screen: 'AddAccount', navAllowed: submissionStatus.isSubmitted_AddAccount },
     ];
-
-    useEffect(() => {
-        // Check if all values are true
-        if (
-            submissionStatus.isSubmitted_ProfileInfo &&
-            submissionStatus.isSubmitted_DrivingLicience &&
-            submissionStatus.isSubmitted_AddVehicle &&
-            submissionStatus.isSubmitted_AddAccount &&
-            submissionStatus.isSubmitted_VehicleRC &&
-            submissionStatus.isSubmitted_IdVerify
-        ) {
-          // Navigate to the desired screen if all are true
-          navigation.navigate('TabNav');  // Replace 'SuccessScreen' with your desired screen name
-        }
-      }, [
-        submissionStatus.isSubmitted_ProfileInfo,
-        submissionStatus.isSubmitted_DrivingLicience,
-        submissionStatus.isSubmitted_AddVehicle,
-        submissionStatus.isSubmitted_AddAccount,
-        submissionStatus.isSubmitted_VehicleRC,
-        submissionStatus.isSubmitted_IdVerify,
-      ]);
 
     return (
         <View style={styles.container}>
@@ -68,8 +46,8 @@ const RiderRegistration = () => {
                         if (!item.navAllowed) {
                             navigation.navigate(item.screen);
                         } else {
-                            // You can handle what happens if navigation is not allowed
-                            alert("Navigation not allowed for this option.");
+                            // Handle cases where navigation is not allowed
+                            alert("You have already submitted this information.");
                         }
                     }}>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingVertical: '15%' }}>
