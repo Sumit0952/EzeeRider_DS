@@ -21,7 +21,7 @@ const MainStackNavigation = () => {
     
        <Stack.Navigator>
         <Stack.Screen name = 'RiderRegistration' component={RiderRegistration} />
-        <Stack.Screen name = 'ProfileInfor' component={ProfileInfor}/>
+        <Stack.Screen name = 'ProfileInfo' component={ProfileInfor}/>
         <Stack.Screen name = 'DrivingLicense' component={DrivingLicense}/>
         <Stack.Screen name = 'VehicleRc' component={VehicleRc}/>
         <Stack.Screen name = 'AddVehicle' component={AddVehicle}/>

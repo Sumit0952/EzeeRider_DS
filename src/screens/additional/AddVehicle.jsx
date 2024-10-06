@@ -60,6 +60,7 @@ const AddVehicle = () => {
         value={vehicleCompany}
         onChangeText={setVehicleCompany}
         placeholder="Enter Vehicle Company"
+        placeholderTextColor={'#888'}
       />
 
       {/* Model No Input */}
@@ -69,6 +70,7 @@ const AddVehicle = () => {
         value={modelNo}
         onChangeText={setModelNo}
         placeholder="Enter Model Number"
+        placeholderTextColor={'#888'}
       />
 
       {/* Vehicle Color Picker */}
@@ -78,6 +80,7 @@ const AddVehicle = () => {
           selectedValue={vehicleColor}
           onValueChange={(itemValue) => setVehicleColor(itemValue)}
           style={styles.picker}
+          dropdownIconColor={'#000'}
         >
           <Picker.Item label="Red" value="Red" />
           <Picker.Item label="Blue" value="Blue" />
@@ -140,6 +143,7 @@ const styles = StyleSheet.create({
   picker: {
     height: 50,
     width: '100%',
+    color:'#000'
   },
   button: {
     backgroundColor: '#0056f6',

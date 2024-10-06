@@ -4,6 +4,7 @@ import { View, Text, TextInput, TouchableOpacity, Image, Alert, StyleSheet, Butt
 import { ScrollView } from 'react-native-gesture-handler';
 import * as ImagePicker from 'react-native-image-picker'; // Image picker for gallery
 import { useSubmission } from './SubmissionContext';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 
 const DrivingLicense = () => {
   const [licenseNo, setLicenseNo] = useState('');
@@ -100,24 +101,24 @@ const DrivingLicense = () => {
         placeholder="Enter License Number"
       />
 
-      <Text style={styles.label}>Upload Front Side</Text>
+      <Text style={styles.label}>Driving Licience Image</Text>
       <TouchableOpacity onPress={() => handleImagePicker(setFrontImageUri)}>
         <View style={styles.imagePicker}>
           {frontImageUri ? (
             <Image source={{ uri: frontImageUri }} style={styles.imagePreview} />
           ) : (
-            <Text style={styles.imagePickerText}>Pick Front Image</Text>
+            <Text style={styles.imagePickerText}>Front Image  <FontAwesome5 name = 'file-upload' size = {20}/></Text>
           )}
         </View>
       </TouchableOpacity>
 
-      <Text style={styles.label}>Upload Back Side</Text>
+    
       <TouchableOpacity onPress={() => handleImagePicker(setBackImageUri)}>
         <View style={styles.imagePicker}>
           {backImageUri ? (
             <Image source={{ uri: backImageUri }} style={styles.imagePreview} />
           ) : (
-            <Text style={styles.imagePickerText}>Pick Back Image</Text>
+            <Text style={styles.imagePickerText}>Back Image  <FontAwesome5 name = 'file-upload' size = {20}/></Text>
           )}
         </View>
       </TouchableOpacity>
@@ -128,7 +129,7 @@ const DrivingLicense = () => {
           {plateImageUri ? (
             <Image source={{ uri: plateImageUri }} style={styles.imagePreview} />
           ) : (
-            <Text style={styles.imagePickerText}>Pick License Plate Image</Text>
+            <Text style={styles.imagePickerText}>License Plate Image  <FontAwesome5 name = 'file-upload' size = {20}/></Text>
           )}
         </View>
       </TouchableOpacity>
@@ -173,7 +174,7 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   imagePickerText: {
-    color: '#fff',
+    color: '#000',
     fontSize: 16,
   },
   imagePreview: {

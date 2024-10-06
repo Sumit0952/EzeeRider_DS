@@ -61,6 +61,7 @@ const AddAccount = () => {
       <TextInput
         style={styles.input}
         placeholder="Enter name"
+        placeholderTextColor={'#888'}
         value={accountHolder}
         onChangeText={setAccountHolder}
       />
@@ -69,6 +70,7 @@ const AddAccount = () => {
       <TextInput
         style={styles.input}
         placeholder="IFSC"
+        placeholderTextColor={'#888'}
         value={ifsc}
         onChangeText={setIfsc}
       />
@@ -77,6 +79,7 @@ const AddAccount = () => {
       <TextInput
         style={styles.input}
         placeholder="Account Number"
+        placeholderTextColor={'#888'}
         value={accountNumber}
         onChangeText={setAccountNumber}
         keyboardType="numeric"
@@ -86,6 +89,7 @@ const AddAccount = () => {
       <TextInput
         style={styles.input}
         placeholder="Account Number"
+        placeholderTextColor={'#888'}
         value={reAccountNumber}
         onChangeText={setReAccountNumber}
         keyboardType="numeric"
@@ -116,6 +120,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 20,
     fontSize: 16,
+    color:'#000'
   },
   button: {
     backgroundColor: '#0066FF',

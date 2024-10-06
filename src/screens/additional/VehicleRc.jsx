@@ -4,6 +4,8 @@ import * as ImagePicker from 'react-native-image-picker'; // Image picker for ga
 import { Picker } from '@react-native-picker/picker'; // Picker for dropdown options
 import { useNavigation } from '@react-navigation/native';
 import { useSubmission } from './SubmissionContext';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import AntDesign from 'react-native-vector-icons/AntDesign'
 
 const VehicleRc = () => {
   const [vehicleNo, setVehicleNo] = useState('');
@@ -104,60 +106,69 @@ const VehicleRc = () => {
         value={vehicleNo}
         onChangeText={setVehicleNo}
         placeholder="Enter Vehicle Registration Number"
+        placeholderTextColor={'#888'}
       />
 
       <Text style={styles.label}>Vehicle Ownership</Text>
+      <View style={styles.pickerContainer}>
       <Picker
         selectedValue={ownership}
         style={styles.picker}
         onValueChange={(itemValue) => setOwnership(itemValue)}
+        dropdownIconColor="#000"
       >
-        <Picker.Item label="Select Ownership" value="" />
+        <Picker.Item label="Select Ownership" value=""/>
         <Picker.Item label="Personal" value="personal" />
         <Picker.Item label="Rented" value="Rented" />
       </Picker>
-
+      {/* <AntDesign name="caretdown" size={20} color="#000" style={styles.icon} /> */}
+      </View>
+      
       <Text style={styles.label}>Vehicle Type</Text>
+
+      <View style={styles.pickerContainer}>
       <Picker
         selectedValue={vehicleType}
         style={styles.picker}
         onValueChange={(itemValue) => setVehicleType(itemValue)}
+        dropdownIconColor="#000"
       >
         <Picker.Item label="Select Vehicle Type" value="" />
         <Picker.Item label="Scooty" value="Scooty" />
         <Picker.Item label="Bike" value="bike" />
         
       </Picker>
+      </View>
 
-      <Text style={styles.label}>Upload Front Side of RC</Text>
+      <Text style={styles.label}>Upload RC Images</Text>
       <TouchableOpacity onPress={() => handleImagePicker(setFrontImageUri)}>
         <View style={styles.imagePicker}>
           {frontImageUri ? (
             <Image source={{ uri: frontImageUri }} style={styles.imagePreview} />
           ) : (
-            <Text style={styles.imagePickerText}>Pick Front Image</Text>
+            <Text style={styles.imagePickerText}>Front Image  <FontAwesome5 name = 'file-upload' size = {20}/></Text>
           )}
         </View>
       </TouchableOpacity>
 
-      <Text style={styles.label}>Upload Back Side of RC</Text>
+      
       <TouchableOpacity onPress={() => handleImagePicker(setBackImageUri)}>
         <View style={styles.imagePicker}>
           {backImageUri ? (
             <Image source={{ uri: backImageUri }} style={styles.imagePreview} />
           ) : (
-            <Text style={styles.imagePickerText}>Pick Back Image</Text>
+            <Text style={styles.imagePickerText}>Back Image  <FontAwesome5 name = 'file-upload' size = {20}/></Text>
           )}
         </View>
       </TouchableOpacity>
 
-      <Text style={styles.label}>Upload License Plate Image</Text>
+      <Text style={styles.label}>License Plate Image</Text>
       <TouchableOpacity onPress={() => handleImagePicker(setPlateImageUri)}>
         <View style={styles.imagePicker}>
           {plateImageUri ? (
             <Image source={{ uri: plateImageUri }} style={styles.imagePreview} />
           ) : (
-            <Text style={styles.imagePickerText}>Pick License Plate Image</Text>
+            <Text style={styles.imagePickerText}>Pick License Plate Image  <FontAwesome5 name = 'file-upload' size = {20}/></Text>
           )}
         </View>
       </TouchableOpacity>
@@ -181,7 +192,7 @@ const styles = StyleSheet.create({
   label: {
     color: '#000',
     fontSize: 16,
-    marginBottom: 10,
+    marginVertical:10
   },
   input: {
     borderWidth: 1,
@@ -191,13 +202,25 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     color: '#000',
   },
-  picker: {
-    height: 50,
-    width: '100%',
-    marginBottom: 20,
+  pickerContainer: {
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 5,
+    marginBottom: 20,
+  },
+    
+  
+  picker: {
+    height: 50,
+    width: '100%',
+    //marginBottom: 20,
+    borderWidth: 1,
+    borderColor: '#0056f6',
+    borderRadius: 20,
+    color:'#000'
+  },
+  icon: {
+    marginLeft: -30,  // Adjust the icon position
   },
   imagePicker: {
     borderWidth: 1,
@@ -209,7 +232,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   imagePickerText: {
-    color: '#fff',
+    color: '#000',
     fontSize: 16,
   },
   imagePreview: {

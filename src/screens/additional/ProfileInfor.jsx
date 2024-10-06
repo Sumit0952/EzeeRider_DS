@@ -114,6 +114,7 @@ const ProfileInfor = () => {
         value={fullName}
         onChangeText={setFullName}
         placeholder="Enter Full Name"
+        placeholderTextColor={'#888'}
       />
 
       <Text style={styles.subHeadings}>Email</Text>
@@ -123,6 +124,8 @@ const ProfileInfor = () => {
         onChangeText={setEmail}
         placeholder="Enter Email"
         keyboardType="email-address"
+        placeholderTextColor={'#888'}
+
       />
 
       <Text style={styles.subHeadings}>Date of Birth</Text>
@@ -131,6 +134,8 @@ const ProfileInfor = () => {
           style={styles.input}
           value={dob}
           placeholder="Select Date of Birth"
+          placeholderTextColor={'#888'}
+
           editable={false} // Makes the TextInput non-editable
         />
       </TouchableOpacity>
@@ -140,6 +145,7 @@ const ProfileInfor = () => {
         <View style={styles.modalContent}>
           <DatePicker
             date={date}
+            style = {styles.calender}
             mode="date"
             onDateChange={setDate}
           />
@@ -166,6 +172,8 @@ const ProfileInfor = () => {
         value={referralCode}
         onChangeText={setReferralCode}
         placeholder="Enter Referral Code"
+        placeholderTextColor={'#888'}
+
       />
 
       {/* Submit Data to API Button */}
@@ -209,6 +217,10 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     marginTop: 10,
+    color:colors.textPrimary
+  },
+  calender:{
+    color:colors.textPrimary
   },
   button: {
     backgroundColor: '#0056f6',
